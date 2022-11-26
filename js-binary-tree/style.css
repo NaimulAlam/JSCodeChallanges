@@ -1,7 +1,17 @@
-.tree {
-  margin-top: 20px;
+.container {
+  margin-top: 30px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree {
+  --dark: rgb(0, 28, 31);
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .node {
@@ -12,11 +22,11 @@
   position: relative;
 }
 
-.node:not(.node-root) > .node_element::before {
+.node:not(.node--root) > .node_element::before {
   content: "";
   height: 20px;
   width: 1px;
-  background-color: #dcdcdc;
+  background-color: tomato;
   display: block;
   position: absolute;
   left: 0;
@@ -24,23 +34,76 @@
   top: -20px;
   margin: auto;
 }
+
+.node.node-left {
+  margin-right: 10px;
+}
+/* Top line idea */
+/* .node.node-left::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -20px;
+  width: 100%;
+  left: 50%;
+  border-top: 2px solid tomato;
+} */
+
+.node.node-right {
+  margin-left: 10px;
+}
+
 .node_element {
+  cursor: pointer;
+  border: 1px solid transparent;
   height: 40px;
-  background-color: rgb(166, 73, 209);
+  background-color: teal;
   border-radius: 16px;
-  min-width: 40px;
+  min-width: 60px;
+  max-width: max-content;
   padding: 4px 8px;
   font-size: 12px;
   line-height: 32px;
   text-align: center;
 }
+
 .node_bottom-line {
   height: 20px;
   width: 1px;
-  background-color: #dcdcdc;
+  background-color: rgb(255, 71, 71);
 }
+
 .node_children {
   display: flex;
-  padding: 20px;
-  border-top: 1px solid #dcdcdc;
+  padding: 20px 0;
+  border-top: 1px solid tomato;
+}
+
+.node_element,
+.node_element::before,
+.node_children,
+.node_bottom-line {
+  transition: all ease 0.2s;
+}
+
+.node_element:hover {
+  border-color: var(--dark);
+  background-color: goldenrod;
+}
+
+.node_element:hover ~ .node_children .node_element::before {
+  width: 2px;
+  background-color: var(--dark);
+}
+
+.node_element:hover ~ .node_bottom-line,
+.node_element:hover ~ .node_children .node_bottom-line {
+  width: 2px;
+  background-color: var(--dark);
+}
+
+.node_element:hover ~ .node_children,
+.node_element:hover ~ .node_children .node_children {
+  border-top-width: 2px;
+  border-color: var(--dark);
 }
