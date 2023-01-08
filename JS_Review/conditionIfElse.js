@@ -14,8 +14,13 @@ var tasksArray = [
 var i = 0;
 
 while (i < tasksArray.length) {
-  console.log(tasksArray[i]);
+  console.log("while-loop", tasksArray[i]);
   i++;
+}
+
+for (var i = 0; i < tasksArray.length; i++) {
+  var task = tasksArray[i];
+  console.log("for-loop", task);
 }
 
 // odd number with while loop
