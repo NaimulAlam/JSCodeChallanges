@@ -20,4 +20,4 @@ function closedPaths(number) {
   return paths;
 }
 
-console.log(closedPaths(630));
+console.log(closedPaths(608));

@@ -1,30 +1,30 @@
-// const printTokens = (str) => {
+// const printTokens = (strings) => {
 //   const specialChar = ["!", ",", "?", ".", "_", "@", "'"];
 
-//   let strWithOutChar = "";
+//   let stringsWithOutChar = "";
 
-//   for (let i = 0; i < str.length; i++) {
-//     const letter = str[i];
+//   for (let i = 0; i < strings.length; i++) {
+//     const letter = strings[i];
 //     if (specialChar.includes(letter)) {
-//       strWithOutChar += " ";
+//       stringsWithOutChar += " ";
 //     } else {
-//       strWithOutChar += letter;
+//       stringsWithOutChar += letter;
 //     }
 //   }
-//   const tokens = strWithOutChar.split(" ").filter((token) => token !== "");
+//   const tokens = stringsWithOutChar.split(" ").filter((token) => token !== "");
 //   console.log(tokens.length);
 //   tokens.forEach((token) => console.log(token));
 //   console.log(tokens);
-//   console.log(strWithOutChar);
+//   console.log(stringsWithOutChar);
 // };
 
 // printTokens("He is a very very good boy, isn't he?");
 
 // 2nd method
-// const printTokens = (str) => {
+// const printTokens = (strings) => {
 //   const specialChar = ["!", ",", "?", ".", "_", "@", "'"];
 
-//   let strWithOutChar = str
+//   let stringsWithOutChar = strings
 //     .split("")
 //     .map((letter) => {
 //       if (specialChar.includes(letter)) {
@@ -34,16 +34,16 @@
 //       }
 //     })
 //     .join("");
-//   console.log(strWithOutChar,);
+//   console.log(stringsWithOutChar,);
 // };
 
 // printTokens("He is a very very good boy, isn't he?");
 
 // 3rd Method 
-const printTokens = (str) => {
-  const specialChar = new Set(["!", ",", "?", ".", "_", "'", "@"]);
+const printTokens = (strings) => {
+  const specialChar = new Set(["!", ",", "?", ".", "_", "'", "@"]); // set also returns uniq array
 
-  let strWithOutChar = str
+  let stringsWithOutChar = strings
     .split("")
     .map((letter) => {
       if (specialChar.has(letter)) {
@@ -54,7 +54,7 @@ const printTokens = (str) => {
     })
     .join("");
 
-  const tokens = strWithOutChar
+  const tokens = stringsWithOutChar
     .split(" ")
     .filter((token) => token !== "");
 
